@@ -22,6 +22,20 @@ public class Airport {
 
 
 
+
+    @OneToMany(mappedBy = "departureAirport", cascade = CascadeType.ALL)
+    private List<Flight> departureFlights;
+
+
+
+
+    @OneToMany(mappedBy = "arrivalAirport", cascade = CascadeType.ALL)
+    private List<Flight> arrivalFlights;
+
+
+
+
+
     public Airport() {
     }
 

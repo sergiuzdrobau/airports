@@ -17,13 +17,6 @@ public class Airline {
     @OneToMany(mappedBy = "airline", cascade = CascadeType.ALL)
     private List<Flight> flights;
 
-    public List<Flight> getFlights() {
-        return flights;
-    }
-
-    public void setFlights(List<Flight> flights) {
-        this.flights = flights;
-    }
 
     public int getId() {
         return id;

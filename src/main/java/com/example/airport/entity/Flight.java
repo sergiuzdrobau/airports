@@ -16,27 +16,34 @@ public class Flight {
 
     @Column(name = "airline_id")
     private int airlineId;
-
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "airline_id", insertable=false, updatable=false)
     private Airline airline;
 
-    @Column(name = "departure_iata")
-    private String departureIata;
 
-    @Column(name = "arrival_iata")
-    private String arrivalIata;
+    @Column(name = "departure_id")
+    private int departureId;
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "departure_id", insertable=false, updatable=false)
+    private Airport departureAirport;
+
+
+    @Column(name = "arrival_id")
+    private int arrivalId;
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "arrival_id", insertable=false, updatable=false)
+    private Airport arrivalAirport;
 
 
     public Flight() {
     }
 
-    public Flight(int id, String number, int airlineId, String departureIata, String arrivalIata) {
+    public Flight(int id, String number, int airlineId, int departureId, int arrivalId) {
         this.id = id;
         this.number = number;
         this.airlineId = airlineId;
-        this.departureIata = departureIata;
-        this.arrivalIata = arrivalIata;
+        this.departureId = departureId;
+        this.arrivalId = arrivalId;
     }
 
     public int getId() {
@@ -63,27 +70,19 @@ public class Flight {
         this.airlineId = airlineId;
     }
 
-    public Airline getAirline() {
-        return airline;
+    public int getDepartureId() {
+        return departureId;
     }
 
-    public void setAirline(Airline airline) {
-        this.airline = airline;
+    public void setDepartureId(int departureId) {
+        this.departureId = departureId;
     }
 
-    public String getDepartureIata() {
-        return departureIata;
+    public int getArrivalId() {
+        return arrivalId;
     }
 
-    public void setDepartureIata(String departureIata) {
-        this.departureIata = departureIata;
-    }
-
-    public String getArrivalIata() {
-        return arrivalIata;
-    }
-
-    public void setArrivalIata(String arrivalIata) {
-        this.arrivalIata = arrivalIata;
+    public void setArrivalId(int arrivalId) {
+        this.arrivalId = arrivalId;
     }
 }

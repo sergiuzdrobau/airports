@@ -1,5 +1,7 @@
 package com.example.airport.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -9,7 +11,7 @@ public class Airline {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int Id;
 
     @Column(name = "name")
     private String name;
@@ -19,11 +21,11 @@ public class Airline {
 
 
     public int getId() {
-        return id;
+        return Id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
     public String getName() {
@@ -37,8 +39,8 @@ public class Airline {
     public Airline() {
     }
 
-    public Airline(int id, String name) {
-        this.id = id;
+    public Airline(int Id, String name) {
+        this.Id = Id;
         this.name = name;
     }
 }

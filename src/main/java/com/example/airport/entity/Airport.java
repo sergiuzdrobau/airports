@@ -9,7 +9,7 @@ public class Airport {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int Id;
 
     @Column(name = "name")
     private String name;
@@ -39,19 +39,19 @@ public class Airport {
     public Airport() {
     }
 
-    public Airport(int id, String name, String iata, String city) {
-        this.id = id;
+    public Airport(int Id, String name, String iata, String city) {
+        this.Id = Id;
         this.name = name;
         this.iata = iata;
         this.city = city;
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
     public String getName() {
@@ -81,7 +81,7 @@ public class Airport {
     @Override
     public String toString() {
         return "Airport{" +
-                "id=" + id +
+                "id=" + Id +
                 ", name='" + name + '\'' +
                 ", iata='" + iata + '\'' +
                 ", city='" + city + '\'' +

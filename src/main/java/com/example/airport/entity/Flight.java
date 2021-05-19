@@ -9,7 +9,7 @@ public class Flight {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int Id;
 
     @Column(name = "number")
     private String number;
@@ -38,8 +38,8 @@ public class Flight {
     public Flight() {
     }
 
-    public Flight(int id, String number, int airlineId, int departureId, int arrivalId) {
-        this.id = id;
+    public Flight(int Id, String number, int airlineId, int departureId, int arrivalId) {
+        this.Id = Id;
         this.number = number;
         this.airlineId = airlineId;
         this.departureId = departureId;
@@ -47,11 +47,11 @@ public class Flight {
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
     public String getNumber() {

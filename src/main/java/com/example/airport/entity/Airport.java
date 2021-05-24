@@ -1,7 +1,11 @@
 package com.example.airport.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "airports")
@@ -11,12 +15,15 @@ public class Airport {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
 
+    @NotEmpty
     @Column(name = "name")
     private String name;
 
+    @Size(min = 3, max = 3)
     @Column(name = "iata")
     private String iata;
 
+    @NotEmpty
     @Column(name = "city")
     private String city;
 
@@ -32,9 +39,18 @@ public class Airport {
     @OneToMany(mappedBy = "arrivalAirport", cascade = CascadeType.ALL)
     private List<Flight> arrivalFlights;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Airport airport = (Airport) o;
+        return Id == airport.Id && Objects.equals(name, airport.name) && Objects.equals(iata, airport.iata) && Objects.equals(city, airport.city) && Objects.equals(departureFlights, airport.departureFlights) && Objects.equals(arrivalFlights, airport.arrivalFlights);
+    }
 
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(Id, name, iata, city, departureFlights, arrivalFlights);
+    }
 
     public Airport() {
     }

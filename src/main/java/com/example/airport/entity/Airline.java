@@ -1,6 +1,5 @@
 package com.example.airport.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.List;

@@ -1,4 +1,6 @@
 
+
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/airports
@@ -12,6 +14,7 @@ spring:
     show-sql: true
 
 
-
+  AmadeusURL : http://localhost:8080/
+  saveURL : http://localhost:8080/
 
 
